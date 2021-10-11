@@ -12,10 +12,10 @@ class RegisterTest {
     void getRegister() {
 
         ArrayList<String> students = new ArrayList<>();
-        Student isaac = new Student("Isaac");
-        Student emma = new Student("Emma");
-        Student jane = new Student("Jane");
-        Student michael = new Student("Michael");
+        Student isaac = new Student("Isaac", HasLevel.Level.LEVEL_200);
+        Student emma = new Student("Emma", HasLevel.Level.LEVEL_100);
+        Student jane = new Student("Jane", HasLevel.Level.LEVEL_200);
+        Student michael = new Student("Michael", HasLevel.Level.LEVEL_100);
 
         students.add(isaac.name);
         students.add(emma.name);

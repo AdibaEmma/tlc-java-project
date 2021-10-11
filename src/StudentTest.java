@@ -10,7 +10,7 @@ class StudentTest {
     @Test
     void getAverageGrade() {
         ArrayList<Double> grades = new ArrayList<Double>();
-        Student emma = new Student("Emma");
+        Student emma = new Student("Emma", HasLevel.Level.LEVEL_100);
 
         // Add some grades to the grades collection
         grades.add(100.00);
@@ -22,4 +22,10 @@ class StudentTest {
 
         assertEquals(100.00, emma.getAverageGrade(grades));
     }
+
+//    @Test
+//    void getStudentDetails() {
+//
+//    }
 }
+

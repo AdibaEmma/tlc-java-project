@@ -1,14 +1,15 @@
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
-public class Student implements Nameable {
+public class Student implements Nameable, HasLevel {
     public String name;
-
+    private Level studentLevel;
     protected List<Double> studentGrades;
 
-    public Student(String name) {
+    public Student(String name, Level level) {
         this.name = name;
+        this.studentLevel = level;
+
     }
 
     protected void setStudentGrades(List<Double> studentGrades) {
@@ -22,8 +23,22 @@ public class Student implements Nameable {
         return average / grades.size();
     }
 
+
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Level getLevel() {
+        return studentLevel;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", studentLevel=" + studentLevel +
+                '}';
     }
 }
