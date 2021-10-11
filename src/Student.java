@@ -2,11 +2,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class Student {
+public class Student implements Nameable {
+    public String name;
+
     protected List<Double> studentGrades;
 
-    public List<Double> getStudentGrades() {
-        return studentGrades;
+    public Student(String name) {
+        this.name = name;
     }
 
     protected void setStudentGrades(List<Double> studentGrades) {
@@ -18,5 +20,10 @@ public class Student {
 
         for ( double grade : grades ) average += grade;
         return average / grades.size();
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }
