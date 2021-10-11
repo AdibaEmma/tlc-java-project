@@ -9,7 +9,7 @@ public class Student {
         return studentGrades;
     }
 
-    public void setStudentGrades(List<Double> studentGrades) {
+    protected void setStudentGrades(List<Double> studentGrades) {
         this.studentGrades = studentGrades;
     }
 
