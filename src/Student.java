@@ -1,4 +1,3 @@
-import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class Student implements Nameable, HasLevel {
@@ -16,7 +15,7 @@ public class Student implements Nameable, HasLevel {
         this.studentGrades = studentGrades;
     }
 
-    public double getAverageGrade(@NotNull List<Double> grades) {
+    public double getAverageGrade(List<Double> grades) {
         double average = 0.00;
 
         for ( double grade : grades ) average += grade;
