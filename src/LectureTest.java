@@ -9,9 +9,9 @@ class LectureTest {
     @Test
     void getHighestAverageGrade() {
         // Students objects
-        Student isaac = new Student("Isaac");
-        Student michael = new Student("Michael");
-        Student jane = new Student("Jane");
+        Student isaac = new Student("Isaac", HasLevel.Level.LEVEL_100);
+        Student michael = new Student("Michael", HasLevel.Level.LEVEL_100);
+        Student jane = new Student("Jane", HasLevel.Level.LEVEL_200);
 
         // Students grades
         // Isaac's grades

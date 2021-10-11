@@ -9,7 +9,7 @@ class NaughtyStudentTest {
     @Test
     void getAverageGrade() {
         ArrayList<Double> grades = new ArrayList<Double>();
-        NaughtyStudent naughtyStudent = new NaughtyStudent("Ben");
+        NaughtyStudent naughtyStudent = new NaughtyStudent("Ben", HasLevel.Level.LEVEL_300);
 
         // Add some grades to the grades collection
         grades.add(100.00);
