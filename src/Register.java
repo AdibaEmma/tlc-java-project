@@ -1,47 +1,21 @@
-import java.util.*;
+package com.university;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Register {
+    List<String> register;
 
-    private List<String> students;
-    Map<HasLevel.Level, ArrayList<String>> studentsWithLevels;
-
-    public Register(List<String>  students) {
-        this.students = students;
+    public Register(List<String> register) {
+        this.register = register;
     }
-    public Register(Map<HasLevel.Level, ArrayList<String>> studentsWithLevels) {
-        this.studentsWithLevels = studentsWithLevels;
-    }
-
 
     public List<String> getRegister() {
-        return students;
-}
+        return register;
+    }
 
-    public void getRegisterByLevel(HasLevel.Level level) {
-
-        switch (level) {
-            case LEVEL_100:
-                System.out.println(
-                        studentsWithLevels.get(HasLevel.Level.LEVEL_100)
-                );
-
-                break;
-            case LEVEL_200:
-                System.out.println(
-                        studentsWithLevels.get(HasLevel.Level.LEVEL_200)
-                );
-                break;
-            case LEVEL_300:
-                System.out.println(
-                        studentsWithLevels.get(HasLevel.Level.LEVEL_300)
-                );
-                break;
-            case LEVEL_400:
-                System.out.println(
-                        studentsWithLevels.get(HasLevel.Level.LEVEL_400)
-                );
-                break;
-            default: System.out.println("No students found for that level");
-        }
+    public List<String> getRegisterByLevel(Level level) {
+        register
     }
 }

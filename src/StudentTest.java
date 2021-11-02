@@ -1,6 +1,8 @@
+package com.university;
+
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,23 +11,9 @@ class StudentTest {
 
     @Test
     void getAverageGrade() {
-        ArrayList<Double> grades = new ArrayList<Double>();
-        Student emma = new Student("Emma", HasLevel.Level.LEVEL_100);
 
-        // Add some grades to the grades collection
-        grades.add(100.00);
-        grades.add(100.00);
-        grades.add(100.00);
-        grades.add(100.00);
-
-        emma.setStudentGrades(grades);
-
-        assertEquals(100.00, emma.getAverageGrade(grades));
+        var studentGrades = Arrays.asList(100.0, 100.0, 100.0, 100.0, 100.0);
+        Student emma = new Student("20016016", studentGrades);
+        assertEquals(100.0, emma.getAverageGrade(), 0);
     }
-
-//    @Test
-//    void getStudentDetails() {
-//
-//    }
 }
-

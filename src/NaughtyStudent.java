@@ -1,21 +1,19 @@
-import org.jetbrains.annotations.NotNull;
+package com.university;
 
 import java.util.List;
 
-public class NaughtyStudent extends  Student implements HasLevel {
-    public double averageGradePercentIncrease = 1.1;
-    private Level studentLevel;
-    public NaughtyStudent(String name, Level level) {
-        super(name, level);
+public class NaughtyStudent extends Student {
+
+    public NaughtyStudent(String studentID, String name, Level level) {
+        super(studentID, name, level);
+    }
+
+    public NaughtyStudent(String studentID, List<Double> grades) {
+        super(studentID, grades);
     }
 
     @Override
-    public double getAverageGrade(@NotNull List<Double> grades) {
-        return super.getAverageGrade(grades) * averageGradePercentIncrease;
-    }
-
-    @Override
-    public Level getLevel() {
-        return studentLevel;
+    public Double getAverageGrade() {
+        return Math.floor(super.getAverageGrade() * 1.1);
     }
 }

@@ -1,44 +1,57 @@
-import org.jetbrains.annotations.NotNull;
+package com.university;
+
 import java.util.List;
 
 public class Student implements Nameable, HasLevel {
-    public String name;
-    private Level studentLevel;
-    protected List<Double> studentGrades;
+    private String name;
+    private final String studentID;
+    private Level level;
+    private List<Double> grades;
 
-    public Student(String name, Level level) {
+    public Student( String studentID, String name,  Level level) {
         this.name = name;
-        this.studentLevel = level;
-
+        this.studentID = studentID;
+        this.level = level;
     }
 
-    protected void setStudentGrades(List<Double> studentGrades) {
-        this.studentGrades = studentGrades;
+    public Student(String studentID, List<Double> grades) {
+        this.studentID = studentID;
+        this.grades = grades;
     }
 
-    public double getAverageGrade(@NotNull List<Double> grades) {
-        double average = 0.00;
-
-        for ( double grade : grades ) average += grade;
-        return average / grades.size();
+    public Double getAverageGrade() {
+        Double sum = getGrades().stream().reduce(0.0, Double::sum);
+        return sum / grades.size();
     }
 
+    public List<Double> getGrades() {
+        return grades;
+    }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+
     public Level getLevel() {
-        return studentLevel;
+        return level;
     }
 
     @Override
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
-                ", studentLevel=" + studentLevel +
+                ", studentID=" + studentID +
+                ", level=" + level +
                 '}';
     }
+
+
 }

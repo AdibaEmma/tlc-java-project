@@ -1,7 +1,7 @@
+package com.university;
+
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,20 +10,14 @@ class RegisterTest {
 
     @Test
     void getRegister() {
+        Student s1 = new Student("1234", "Emma", Level.FIRST);
+        Student s2 = new Student("2433", "Bright", Level.SECOND);
+        Student s3 = new Student("777", "Tom", Level.FOURTH);
+        Student s4 = new Student("108", "Riddle", Level.THIRD);
+        var studentNames = List.of(s1.getName(),s2.getName(), s4.getName(), s3.getName());
 
-        ArrayList<String> students = new ArrayList<>();
-        Student isaac = new Student("Isaac", HasLevel.Level.LEVEL_200);
-        Student emma = new Student("Emma", HasLevel.Level.LEVEL_100);
-        Student jane = new Student("Jane", HasLevel.Level.LEVEL_200);
-        Student michael = new Student("Michael", HasLevel.Level.LEVEL_100);
+        Register register = new Register(studentNames);
 
-        students.add(isaac.name);
-        students.add(emma.name);
-        students.add(jane.name);
-        students.add(michael.name);
-
-        Register register = new Register(students);
-        List<String> studentsRegister = register.getRegister();
-        assertEquals("Emma", studentsRegister.get(1));
+        assertTrue(register.getRegister().contains("Tom"));
     }
 }
