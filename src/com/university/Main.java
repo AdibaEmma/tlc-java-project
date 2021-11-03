@@ -1,7 +1,11 @@
 package com.university;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Main {
 
@@ -61,19 +65,50 @@ public class Main {
 //        System.out.println(lecturer4);
 //
 
-        BagOfStudents bagOfStudents = new BagOfStudents();
+//        BagOfStudents bagOfStudents = new BagOfStudents();
+//
+//        bagOfStudents.add( new Student("211101206", "Emmanuel", Level.FIRST) );
+//        bagOfStudents.add( new Student("211101206", "Emmanuel", Level.FIRST) );
+//        bagOfStudents.add(  new Student("191101116", "Adams", Level.THIRD) );
+//        bagOfStudents.add( new Student("211101240", "Carl", Level.FIRST) );
+//        bagOfStudents.add( new Student("201101445", "Michael", Level.SECOND) );
+//
+//
+//        System.out.println(bagOfStudents.getElements());
+//        bagOfStudents.remove( new Student("211101240", "Carl", Level.FIRST) );
+//        System.out.println(bagOfStudents.getElements());
+//        bagOfStudents.clear();
+//        System.out.println(bagOfStudents.getElements());
 
-        bagOfStudents.add( new Student("211101206", "Emmanuel", Level.FIRST) );
-        bagOfStudents.add( new Student("211101206", "Emmanuel", Level.FIRST) );
-        bagOfStudents.add(  new Student("191101116", "Adams", Level.THIRD) );
-        bagOfStudents.add( new Student("211101240", "Carl", Level.FIRST) );
-        bagOfStudents.add( new Student("201101445", "Michael", Level.SECOND) );
 
 
-        System.out.println(bagOfStudents.getElements());
-        bagOfStudents.remove( new Student("211101240", "Carl", Level.FIRST) );
-        System.out.println(bagOfStudents.getElements());
-        bagOfStudents.clear();
-        System.out.println(bagOfStudents.getElements());
+        // Register Class
+        var studentNames = List.of(
+                new Student("1234", "Emma", Level.FIRST),
+                new Student("2433", "Bright", Level.SECOND),
+                new Student("777", "Tom", Level.FOURTH),
+                new Student("108", "Riddle", Level.THIRD),
+                new Student("00001", "Grovy", Level.SECOND)
+        );
+
+        Register register = new Register(studentNames);
+
+        System.out.println("Register with Level: " + register.getRegisterByLevel(Level.THIRD));
+        System.out.println(register.PrintReport());
+        System.out.println(register.sort(Comparator.comparing(Student::getName)));
+        System.out.println(register.sort(Comparator.comparing(Student::getLevel)));
+        System.out.println(register.sort(Comparator.comparing(Student::getStudentID)));
+        System.out.println("............");
+//        try {
+//            System.out.println(register.getStudentByName("Kofi"));
+//        } catch (StudentNotFoundException snfe) {
+//            System.out.println(snfe.getMessage());
+//        }
+
+        System.out.println(register.getStudentByName("Kofi"));
+
+        var names = Arrays.asList("Emma", "Bright", "Riddle");
+
+        System.out.println(register.getStudentsByName(names));
     }
 }

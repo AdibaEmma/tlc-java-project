@@ -10,14 +10,45 @@ class RegisterTest {
 
     @Test
     void getRegister() {
-        Student s1 = new Student("1234", "Emma", Level.FIRST);
-        Student s2 = new Student("2433", "Bright", Level.SECOND);
-        Student s3 = new Student("777", "Tom", Level.FOURTH);
-        Student s4 = new Student("108", "Riddle", Level.THIRD);
-        var studentNames = List.of(s1.getName(),s2.getName(), s4.getName(), s3.getName());
+        var studentNames = List.of(
+                new Student("1234", "Emma", Level.FIRST),
+                new Student("2433", "Bright", Level.SECOND),
+                new Student("777", "Tom", Level.FOURTH),
+                new Student("108", "Riddle", Level.THIRD)
+        );
 
         Register register = new Register(studentNames);
 
         assertTrue(register.getRegister().contains("Tom"));
+    }
+
+    @Test
+    void getRegisterByLevel() {
+        var studentNames = List.of(
+                new Student("1234", "Emma", Level.FIRST),
+                new Student("2433", "Bright", Level.SECOND),
+                new Student("777", "Tom", Level.FOURTH),
+                new Student("108", "Riddle", Level.THIRD),
+                new Student("00001", "Grovy", Level.SECOND)
+        );
+
+        Register register = new Register(studentNames);
+
+        //assertTrue(register.getRegisterByLevel(Level.SECOND).contains("Bright"));
+    }
+
+    @Test
+    void getStudentByName() throws StudentNotFoundException {
+        var studentNames = List.of(
+                new Student("1234", "Emma", Level.FIRST),
+                new Student("2433", "Bright", Level.SECOND),
+                new Student("777", "Tom", Level.FOURTH),
+                new Student("108", "Riddle", Level.THIRD),
+                new Student("00001", "Grovy", Level.SECOND)
+        );
+
+        Register register = new Register(studentNames);
+
+        assertTrue(register.getStudentByName("Kofi").isPresent());
     }
 }
